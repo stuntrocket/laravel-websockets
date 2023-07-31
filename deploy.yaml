@@ -2,13 +2,13 @@ import:
   - recipe/laravel.php
 
 config:
-  repository: "git@github.com:stuntrocket/stuntrocket-echo.git"
+  repository: "git@github.com:stuntrocket/laravel-websockets.git"
   remote_user: deployer
   php_fpm_version: '8.1'
 
 hosts:
   master:
-    hostname: echo.stuntrocket.co
+    hostname: "echo.stuntrocket.co"
     deploy_path: "/var/www/vhosts/echo.stuntrocket.co"
     remote_user: "ubuntu"
     branch: master
