@@ -21,3 +21,5 @@ yarn-error.log
 /storage/laravel-websockets.test.key
 /private
 *.private.md
+
+.php-cs-fixer.cache
