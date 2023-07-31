@@ -18,3 +18,6 @@ yarn-error.log
 /.idea
 /.vscode
 /storage/laravel-websockets.test.crt
+/storage/laravel-websockets.test.key
+/private
+*.private.md
