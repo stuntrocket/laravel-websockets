@@ -42,14 +42,14 @@ return [
 //                'scheme' => env('PUSHER_SCHEME', 'https'),
 //                'encrypted' => true,
 //                'useTLS' => env('PUSHER_SCHEME', 'https') === 'https',
-//                'curl_options' => [
-//                    CURLOPT_SSL_VERIFYHOST => 0,
-//                    CURLOPT_SSL_VERIFYPEER => 0,
-//                ],
+                'curl_options' => [
+                    CURLOPT_SSL_VERIFYHOST => 0,
+                    CURLOPT_SSL_VERIFYPEER => 0,
+                ],
                 'cluster' => env('PUSHER_APP_CLUSTER'),
                 'host' => '127.0.0.1',
-                'port' => 6001,
-                // 'scheme' => 'https'
+//                'port' => 6001,
+                 'scheme' => 'https'
             ],
             'client_options' => [
                 // Guzzle client options: https://docs.guzzlephp.org/en/stable/request-options.html
