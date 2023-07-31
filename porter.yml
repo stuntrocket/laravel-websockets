@@ -1,0 +1,18 @@
+services:
+  - name: Queue
+    command: php artisan queue:work database --sleep=3 --tries=3
+    restart:
+      watch:
+        - app/Jobs
+  - name: Websocket
+    command: php artisan websockets:serve
+    restart:
+      watch:
+        - app/Events
+        - app/Listeners
+  - name: Vite
+    command: npm run dev
+  - name: Stripe
+    command: stripe listen --forward-to https://stuntrocket.test/stripe/webhook
+    restart:
+      minutes: 15

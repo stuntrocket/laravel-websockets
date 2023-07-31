@@ -1,0 +1,35 @@
+import:
+  - recipe/laravel.php
+
+config:
+  repository: "git@github.com:stuntrocket/stuntrocket-echo.git"
+  remote_user: deployer
+  php_fpm_version: '8.1'
+
+hosts:
+  master:
+    hostname: echo.stuntrocket.co
+    deploy_path: "/var/www/vhosts/echo.stuntrocket.co"
+    remote_user: "ubuntu"
+    branch: master
+
+tasks:
+  npm:install:
+    - cd: "{{deploy_path}}/current"
+    - run: "npm install"
+  npm:build:
+    - cd: "{{deploy_path}}/current"
+    - run: "npm run build"
+  site:url:
+    - run: 'curl -s -o /dev/null -w "%{http_code}" https://echo.stuntrocket.co'
+  restart:services:
+    - cd: "{{deploy_path}}/current"
+    - run: "sudo /etc/init.d/php8.1-fpm restart && sudo /etc/init.d/nginx restart && sudo supervisorctl restart all"
+
+
+after:
+  deploy:failed: deploy:unlock
+  deploy:symlink: npm:install
+  npm:install: npm:build
+  deploy:unlock: restart:services
+#  deploy:unlock: site:url
