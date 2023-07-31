@@ -59,6 +59,7 @@ return [
     'allowed_origins' => [
         'https://staged.agency',
         'https://*.staged.agency',
+        'https://stuntrocket.test',
     ],
 
     /*
