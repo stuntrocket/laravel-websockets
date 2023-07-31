@@ -23,15 +23,6 @@ return [
      */
     'apps' => [
         [
-            // 'id' => env('PUSHER_APP_ID'),
-            // 'name' => env('APP_NAME'),
-            // 'key' => env('PUSHER_APP_KEY'),
-            // 'secret' => env('PUSHER_APP_SECRET'),
-            // 'path' => env('PUSHER_APP_PATH'),
-            // 'capacity' => null,
-            // 'enable_client_messages' => false,
-            // 'enable_statistics' => true,
-
             'id' => env('PUSHER_APP_ID'),
             'name' => env('APP_NAME'),
             'key' => env('PUSHER_APP_KEY'),
@@ -57,9 +48,6 @@ return [
      * Leave this empty if you want to accept requests from all hosts.
      */
     'allowed_origins' => [
-//        'https://staged.agency',
-//        'https://*.staged.agency',
-//        'https://stuntrocket.test',
     ],
 
     /*
@@ -140,7 +128,7 @@ return [
          */
         'passphrase' => env('LARAVEL_WEBSOCKETS_SSL_PASSPHRASE', null),
 
-        'verify_peer' => false
+        'verify_peer' => false // important - write-up
     ],
 
     /*
