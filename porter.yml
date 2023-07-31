@@ -12,7 +12,3 @@ services:
         - app/Listeners
   - name: Vite
     command: npm run dev
-  - name: Stripe
-    command: stripe listen --forward-to https://stuntrocket.test/stripe/webhook
-    restart:
-      minutes: 15
